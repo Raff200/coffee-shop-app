@@ -43,7 +43,8 @@ async function placeOrder() {
   };
 
   try {
-    const response = await fetch('http://localhost:3001/api/orders', {
+    // PERBAIKAN SINTAKS DI SINI: Gunakan backtick `
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +85,9 @@ onMounted(async () => {
   
   // Kedua, ambil data produk (di dalam onMounted yang sama)
   try {
-    const response = await fetch('http://localhost:3001/api/products');
+    // PERBAIKAN SINTAKS DI SINI: Gunakan backtick `
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/products`);
+    
     const data = await response.json();
     products.value = data;
   } catch (error) {
